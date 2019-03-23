@@ -1,0 +1,10 @@
+<p>一覧ページ予定地</p>
+<% @monsters.each do |monster| %>
+	<%= monster.id %>
+	<%= link_to(monster.name,"/monsters/#{monster.id}") %>
+	<%= monster.Offensive_power %>
+	<%= monster.Defense_power %>
+	<br>
+	
+<% end %>
+<%= link_to( "新規作成" ,"/monsters/new") %>

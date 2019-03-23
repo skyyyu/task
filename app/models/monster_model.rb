@@ -1,0 +1,3 @@
+class MonsterModel < ApplicationRecord
+	
+end

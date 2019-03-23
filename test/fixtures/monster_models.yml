@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: アンパンマン
+  Offensive_power: 200
+  Defense_power: 600
+
+two:
+  name: ドラえもん
+  Offensive_power: 1000
+  Defense_power: 100
+
+three:
+  name: コナン
+  Offensive_power: 250
+  Defense_power: 800

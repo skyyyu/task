@@ -1,0 +1,26 @@
+<p>編集</p>
+<%= form_tag({action:"update"}, {method:"patch"})do %>
+  <input type="hidden" value="<%= @monster.id %>" name="id" >
+  <table name="content">
+    <tr>
+  	  <td align="right">モンスターの名前：</td>
+  	  <td><input type="text" value="<%= @monster.name %>" name="name" ></td>
+    </tr>
+    <tr>
+  	  <td align="right">攻撃力：</td>
+  	  <td><input type="number" value="<%= @monster.Offensive_power %>" name="Offensive_power"></td>
+    </tr>
+    <tr>
+  	  <td align="right">防御力：</td>
+  	  <td><input type="number" value="<%= @monster.Defense_power %>" name="Defense_power"></td>
+    </tr>
+    <tr>
+  	  <td></td>
+  	  <td>
+        <div class="form">
+          <input type="submit" value="新規作成">
+        </div>
+      </td>  
+    </tr>
+  </table>
+<% end %>
