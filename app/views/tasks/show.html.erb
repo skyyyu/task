@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>名前:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>期日:</strong>
+  <%= @task.deadline.strftime("%Y-%m-%d %H:%M") %>
+</p>
+超えてる？
+  <%= @task.deadline_over? %>
+
+<p>
+  <strong>詳細:</strong>
+  <%= @task.detail %>
+</p>
+
+<p>
+  <strong>かかる予定時間:</strong>
+  <%= @task.time %>
+</p>
+
+<p>
+  <strong>進捗:</strong>
+  <%= @task.state %>
+</p>
+
+<p>
+  <strong>ボタン:</strong>
+    <% if @task.state == "not_started_yet" %> 
+      <%= button_to '着手', "/tasks/#{@task.id}/state_plus_one" %>
+      <% elsif @task.state == "in_progress" %>
+      <%= button_to '進行中', "/tasks/#{@task.id}/state_plus_one" %>
+    <% end %>
+</p>
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

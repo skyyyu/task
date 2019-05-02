@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :tasks
+  resources :items
+  
+  post 'tasks/:id/state_plus_one' => 'tasks#state_plus_one'
+
   get 'pages/index'
   get 'pages' => 'pages#index'
   get 'monsters' => 'monster_model#index'

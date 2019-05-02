@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<%= search_form_for @search do |f| %>
+  <div class="form-group">
+    <%= f.label :name_cont, "名前" %>
+    <%= f.text_field :name_cont, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label  :"進捗" %>
+    <%= f.select :state, [["not_started_yet", "not_started_yet"],["in_progress", "in_progress"],["done", "done"]] , :include_blank => '指定なし', class: "form-control" %>
+  </div>
+
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+<h1>Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>期日</th>
+      <th>詳細</th>
+      <th>かかる予定時間</th>
+      <th>進捗</th>
+      <th>ボタン</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td>
+          <% if task.deadline_over? == true %>
+            <span style="color:#FF0000;">
+              <%= task.name  %>
+            </span>
+          <% else %>
+            <span>
+              <%= task.name %>
+            </span>
+            <% end %>
+          </td>
+        <td><%= task.deadline.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= task.detail %></td>
+        <td><%= task.time %></td>
+        <td><%= task.state %></td>
+        <td>
+          <% if task.state == "not_started_yet" %> 
+          <%= button_to '着手', "/tasks/#{task.id}/state_plus_one" %>
+          <% elsif task.state == "in_progress" %>
+          <%= button_to '進行中', "/tasks/#{task.id}/state_plus_one" %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
