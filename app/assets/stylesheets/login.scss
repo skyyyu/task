@@ -1,0 +1,52 @@
+.login_container {
+	align-items: stretch;
+    min-height: calc(100vh - 41px);
+    width: 922px;
+    margin: 0 auto;
+
+    .login_formbox {
+    	width: 100%;
+    	display: inline-block;
+		background: #fff;
+		text-align:center;
+	    padding:40px;
+	    .login_field {
+	    	display: inline-block;
+	    	width: 35%;
+	    	div {
+	    		margin: 5px;
+	    		width: 100%;
+	    	}
+		    input {
+			    padding: 13px 20px;
+			    border: none;
+			    width: 100%;
+			    max-width: 270px;
+			    border-radius: 2px;
+			    background: #eee;
+			    box-sizing: border-box;
+			    outline: none;
+			    font-size: 14px;
+		    }
+		    .login_email form {
+		    	width: 100%;
+		    }
+		    .actions {
+		    	padding: 10px;
+		    	input {
+		    		padding: 8px;
+			        width: 40%;
+			        margin: auto;
+			        background-color: #db4c3f;
+		            color: #fff !important;
+		            border: 1px solid transparent;
+		            border-radius: 5px;
+		            &:hover {
+		            	border-color: #b0281a;
+		                background-color: #c53727;
+		            }
+		    	}
+		    }
+        }
+    }
+}

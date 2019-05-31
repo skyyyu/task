@@ -6,8 +6,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.where(user_id: current_user.id)
-    @search = Task.search(params[:q])
-    @tasks = @search.result
+    @search = @tasks.search(params[:q])
+    @tasks = @search.result(distinct: true)
   end
 
   # GET /tasks/1
@@ -32,7 +32,8 @@ class TasksController < ApplicationController
    
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        NotificationMailer.send_confirm_to_user(@task).deliver_later
+        format.html { redirect_to @task, notice: 'タスクを追加しました' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -46,13 +47,16 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to @task, notice: 'タスクを更新しました' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+    @post = Post.new(permit_params)
+    @post.save!
+    redirect_to action: 'show'
   end
 
   # DELETE /tasks/1
@@ -60,7 +64,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to tasks_url, notice: 'タスクを削除しました' }
       format.json { head :no_content }
     end
   end
@@ -83,7 +87,9 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :deadline, :detail, :time, :state)
+      params.require(:task).permit(:name, :deadline, :detail, :time, :state, :image)
     end
+
+    
 
 end

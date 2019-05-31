@@ -12,28 +12,36 @@
   <% end %>
 
   
+  <div class="add_task_list">
+    <div class="field">
+      <%= form.label :name, "名前" %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="field">
+      <%= form.label :deadline, "期日" %>
+      <%= form.datetime_select :deadline %>
+    </div>
+
+    <div class="field">
+      <%= form.label :detail, "詳細" %>
+      <%= form.text_area :detail %>
+    </div>
+
+    <div class="field">
+      <%= form.label :time, "かかる時間" %>
+      <%= form.number_field :time %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image, "画像" %>
+      <%= form.file_field :image, id: :task_image %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :deadline %>
-    <%= form.datetime_select :deadline %>
-  </div>
 
-  <div class="field">
-    <%= form.label :detail %>
-    <%= form.text_area :detail %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.number_field :time %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

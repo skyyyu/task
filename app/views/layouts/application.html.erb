@@ -11,15 +11,36 @@
 
   <body>
     <header>
-      <nav>
-        <% if user_signed_in? %>
-          <strong><%= link_to current_user.username %></strong>
-          <%= link_to 'プロフィール変更', edit_user_registration_path %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-        <% end %>
+      <nav class="top-bar">
+        <div class="top_bar_inner">
+          <% if user_signed_in? %>
+            <div class="top_bar_left">
+              <strong><%= link_to current_user.username, tasks_path %></strong>
+            </div>
+            <div class="top_bar_right">
+              <div class="new_task">
+                <%= link_to new_task_path do %>
+                <i class="fa fa-plus-circle"></i>
+                <% end %>
+              </div>
+              <div class="profile">
+                <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-user-circle"></i>
+                <% end %>
+              </div>
+              <div class="logout">
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <div class="header_logout">
+              <%= link_to '新規登録', new_user_registration_path %>
+              <%= link_to 'ログイン', new_user_session_path %>
+            </div>
+          <% end %>
+        </div>
       </nav>
     </header>
 

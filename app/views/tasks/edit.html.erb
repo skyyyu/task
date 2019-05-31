@@ -1,6 +1,18 @@
-<h1>Editing Task</h1>
+<div class="task_edit">
+	<div class="edit_wrapper">
+		<div class="edit_list">
+			<h1>タスク編集</h1>
 
-<%= render 'form', task: @task %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+			<%= render 'form', task: @task %>
+            <div class="edit_icon">
+				<%= link_to @task do %>
+				<i class="fa fa-bars"></i>
+                <% end %>
+                 |
+				<%= link_to tasks_path do %>
+					<i class="fa fa-home"></i>
+		        <% end %>
+			</div>
+        </div>
+    </div>
+</div>

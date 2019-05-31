@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable
 
   has_many :tasks, dependent: :destroy
+
+  
 end

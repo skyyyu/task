@@ -1,0 +1,74 @@
+.add_task {
+	align-items: stretch;
+    min-height: calc(100vh - 41px);
+    width: 922px;
+    margin: 0 auto;
+    .add_task_wrapper {
+    	width: 100%;
+    	display: inline-block;
+		background: #fff;
+		text-align:center;
+	    padding:40px;
+	    .add_task_list {
+	    	display: inline-block;
+	    	.field {
+	    		margin: 25px 0;
+	    		label, em {
+                	margin: auto 5px;
+                }
+	    		input {
+	    			padding: 8px;
+				    font-size: 13px;
+				    outline: none;
+				    max-width: 270px;
+				    border-radius: 2px;
+				    background: #eee;
+				    box-sizing: border-box;
+				    border: none;
+	    		}
+	    		textarea {
+	    			background: #eee;	
+					border: none;
+					border-radius: 2px;
+					outline: none;
+					font-size: 13px;
+					width: 200px;
+					padding: 8px;
+	    		}
+	    		select {
+	    			width: 100%;
+                    top: 0;
+                    padding: 5px 0;
+                    height: 40px;
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                    background: #ececec;
+                    border: 0 none;
+                    outline: none;
+                    margin: 3px;
+                    font-size: 13px;
+	    		}
+	    	}
+	    	.actions input {
+	    		background-color: #db4c3f;
+	            color: #fff !important;
+	            padding: 3px;
+	            border: 1px solid transparent;
+	            border-radius: 5px;
+	            display: block;
+                margin: auto;
+                font-size: 14px;
+				&:hover {
+            	    border-color: #b0281a;
+                    background-color: #c53727;
+                }
+	    	}
+	    }
+	    i {
+	    	font-size: 35px;
+            margin: 20px 0;
+            &:hover {
+            	opacity: .8;
+            }
+	    }
+    }
+}

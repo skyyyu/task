@@ -1,0 +1,85 @@
+.task_edit {
+	align-items: stretch;
+    min-height: calc(100vh - 41px);
+    width: 922px;
+    margin: 0 auto;
+    .edit_wrapper {
+    	display: block;
+		background: #fff;
+		width: 100%;
+		.edit_list {
+			display: block;
+		    text-align: center;
+		        margin: 50px;
+		    .add_task_list {
+		    	display: inline-block;
+                text-align: center;
+                .field {
+            	    margin: 20px 0;
+            	    font-size: 15px;
+            	    input {
+	                	padding: 8px;
+					    font-size: 13px;
+					    outline: none;
+					    max-width: 270px;
+					    border-radius: 2px;
+					    background: #eee;
+					    box-sizing: border-box;
+					    border: none;
+                    }
+                    
+                    select {
+					    width: 100%;
+                        top: 0;
+                        padding: 5px 0;
+                        height: 40px;
+                        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                        background: #ececec;
+                        border: 0 none;
+                        outline: none;
+                        margin: 3px;
+				    }
+				    textarea {						
+						background: #eee;	
+						border: none;
+						border-radius: 2px;
+						outline: none;
+						font-size: 13px;
+						width: 200px;
+						padding: 8px;					
+					}
+
+                    label, em {
+	                	margin: auto 5px;
+                    }
+                }
+                .actions {
+                	input {
+						background-color: #db4c3f;
+			            color: #fff !important;
+			            padding: 3px;
+			            border: 1px solid transparent;
+			            border-radius: 5px;
+			            display: block;
+	                    margin: auto;
+	                    font-size: 14px;
+						&:hover {
+		            	    border-color: #b0281a;
+		                    background-color: #c53727;
+		                }
+		            }
+                }
+		    }
+		    .edit_icon {
+            	display: block;
+			    font-size: 25px;
+			    margin-top: 10px;
+			    i {
+			    	&:hover {
+	            	    opacity: .8;
+			        }
+			    }    
+            }
+		}
+    }
+}

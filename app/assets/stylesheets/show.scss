@@ -1,0 +1,47 @@
+.show_wrapper {
+	align-items: stretch;
+    min-height: calc(100vh - 41px);
+    width: 922px;
+    margin: 0 auto;
+
+    .show_list {
+    	width: 100%;
+    	display: inline-block;
+		background: #fff;
+		text-align: left;
+	    padding: 20px 280px;
+		
+		.show_state {
+            display: block;
+		    text-align: center;
+		    border-bottom: #f1f1f1 1px solid;
+		    padding: 12px 5px;
+			
+		} 
+		p {
+			padding: 10px 0;
+			font-size: 15px;
+		}
+		img.thumbnail {
+		    width: 200px;
+		}
+		input {
+			display: block;
+		    margin: auto;
+		}
+		.show_icon {
+			font-size: 30px;
+			color: gray;
+			padding: 20px 0;
+			display: block;
+			text-align: center;
+			i {
+				color: gray;
+				padding: 0 5px;
+				&:hover {
+	            	opacity: .8;
+	            }
+			}
+	    } 
+    }
+}

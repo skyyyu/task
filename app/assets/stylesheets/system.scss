@@ -1,0 +1,13 @@
+/*全ページ共通部品*/
+
+input[type="submit"]{
+        border-radius: 2px;
+        background: #fff;
+        color: #333;
+        font-weight: bold;
+        font-size: 13px;
+        cursor: pointer;
+        &.font10{
+        	font-size: 10px;
+        }
+}

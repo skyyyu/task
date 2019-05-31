@@ -1,3 +1,112 @@
-// Place all the styles related to the tasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.content_wrapper{
+	align-items: stretch;
+    min-height: calc(100vh - 41px);
+    width: 922px;
+    margin: 0 auto;
+    .search_form{
+		margin: 20px 30px;
+		display: block;
+		.form_group {
+			margin:10px 0;
+			display: block;
+			.form_name {
+				margin: 10px 0;
+				input {
+				    outline: 0;
+				    padding: 0 10px;
+				    left: 0;
+				    top: 0;
+				    border: none;
+				    width: 100%;
+				    max-width: 270px;
+				    border-radius: 2px;
+				    background: #eee;
+				    box-sizing: border-box;
+				}
+			}
+			.form_state{
+				select {
+					    width: 100%;
+                        top: 0;
+                        padding: 5px 0;
+                        height: 40px;
+                        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                        background: #ececec;
+                        border: 0 none;
+                        outline: none;
+				}
+			}
+		}
+
+/*		.actions {
+				input{
+				        border-radius: 2px;
+                        background: #fff;
+                        color: #333;
+                        font-weight: bold;
+                        font-size: 13px;
+                        cursor: pointer;
+                }
+			}*/
+
+	    .new_task a {
+	    	background-color: #db4c3f;
+            color: #fff !important;
+            padding: 3px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+
+            &:hover {
+            	border-color: #b0281a;
+                background-color: #c53727;
+            }
+	    }
+	}
+
+	.task_list {
+		display: block;
+		background: #fff;
+		h2 {
+			margin: 20px 30px;
+			padding: 10px;
+			border-bottom: #f1f1f1 1px solid;
+		}
+		.task_over_header {
+				color: #db4c3f;
+			}
+
+		.task_list_header{
+			margin-top: 50px;
+			}
+
+		td {
+			padding: 13px;
+			border-bottom: #f1f1f1 1px solid;
+			img.thumbnail {
+				width: 100px;
+			}
+			i {
+				font-size: 20px;
+				color: gray;
+				&:hover {
+	            	opacity: .8;
+	            }
+			}
+			&.state_td{
+				min-width: 50px;
+				text-align: center;
+			}
+			&.image_td{
+				min-width: 100px;
+			}
+		}
+		.task_table_true {
+			margin: 20px 30px;
+			border-collapse: collapse;
+		}
+		.task_table_false {
+			margin: 20px 30px;
+			border-collapse: collapse;
+		}
+	}
+}

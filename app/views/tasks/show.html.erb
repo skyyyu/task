@@ -1,39 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>名前:</strong>
-  <%= @task.name %>
-</p>
+<div class="show_wrapper">
+  <div class="show_list">
+      <h2 class="show_state">詳細ページ</h2>
+      <p>
+        <strong>名前:</strong>
+        <%= @task.name %>
+      </p>
 
-<p>
-  <strong>期日:</strong>
-  <%= @task.deadline.strftime("%Y-%m-%d %H:%M") %>
-</p>
-超えてる？
-  <%= @task.deadline_over? %>
+      <p>
+        <strong>期日:</strong>
+        <%= @task.deadline.strftime("%Y-%m-%d %H:%M") %>
+      </p>
+      超えてる？
+      <%= @task.deadline_over? %>
 
-<p>
-  <strong>詳細:</strong>
-  <%= @task.detail %>
-</p>
+      <p>
+        <strong>詳細:</strong>
+        <%= @task.detail %>
+      </p>
 
-<p>
-  <strong>かかる予定時間:</strong>
-  <%= @task.time %>
-</p>
+      <p>
+        <strong>かかる予定時間:</strong>
+        <%= @task.time %>
+      </p>
 
-<p>
-  <strong>進捗:</strong>
-  <%= @task.state %>
-</p>
+      <p>
+        <strong>進捗:</strong>
+        <%= @task.state %>
+      </p>
 
-<p>
-  <strong>ボタン:</strong>
-    <% if @task.state == "not_started_yet" %> 
-      <%= button_to '着手', "/tasks/#{@task.id}/state_plus_one" %>
-      <% elsif @task.state == "in_progress" %>
-      <%= button_to '進行中', "/tasks/#{@task.id}/state_plus_one" %>
-    <% end %>
-</p>
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+      <p>
+        <strong>ボタン:</strong>
+        <% if @task.state == "not_started_yet" %> 
+          <%= button_to '着手', "/tasks/#{@task.id}/state_plus_one" %>
+          <% elsif @task.state == "in_progress" %>
+          <%= button_to '進行中', "/tasks/#{@task.id}/state_plus_one" %>
+        <% end %>
+      </p>
+
+      <p>
+        <strong>画像:</strong>
+        <%= image_tag(@task.image_url, :class => "thumbnail") if @task.image.present? %>
+      </p>
+
+      <div class="show_icon">
+        <%= link_to edit_task_path(@task) do %>
+          <i class="fa fa-edit"></i>
+        <% end %> |
+        <%= link_to tasks_path do %>
+          <i class="fa fa-home"></i>
+        <% end %>
+      </div>
+  </div>
+</div>
